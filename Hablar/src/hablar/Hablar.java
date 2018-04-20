@@ -17,7 +17,7 @@ public class Hablar extends JFrame  {
     JButton incorrecto;
     JPanel panel;
     
-    String[] conversacion = new String[3];
+    String[] conversacion = new String[300];
     
     
     public Hablar(){
@@ -30,7 +30,7 @@ public class Hablar extends JFrame  {
         
         tuledices = new JTextField();
         tuledices.setBounds(30,100,450,20);
-        panel.add(tuledices);
+        add(tuledices);
         
         enviar = new JButton("Envia");
         enviar.setBounds(30,150,450,20);
@@ -56,7 +56,7 @@ public class Hablar extends JFrame  {
 
         add(panel);
         // Algo
-        
+        Hola como te encuentras
         conversacion[0] = "Hola como estas?";
         conversacion[1] = "Yo estoy bien, y tu?";
         // Aqui Pedro podrá poner sus cosas
@@ -67,9 +67,41 @@ public class Hablar extends JFrame  {
         // Aqui Pedro podrá poner sus cosas
     }
      private void botonActionPerformed(java.awt.event.ActionEvent evt) { 
-         System.out.println("Has pulsado un boton");
-         elteresponde.setText(conversacion[0]);
-     }
+         // En primer lugar, quiero obtener el String de lo que he escrito, esto es una frase
+         String escrito = tuledices.getText();
+         // Preparo al programa para que trabaje con un conjunto de palabras
+         
+         // Palabras es la descomposicion de cada una de las palabras de la frase anterior
+         
+         // Ahora voy a ir conversacion a conversacion para encontrar la que mas se parezca a la que yo he escrito
+         int mejorcandidato = 0;
+         int puntuacionmejorcandidato = 0;
+         for(int i = 0;i<=3;i++){
+             int puntuacion = 0;
+             String conversacionoriginal = conversacion[i];
+             String[] palabrasgrupo1 = new String[100];
+             palabrasgrupo1 = conversacionoriginal.split(" ");
+             String[] palabrasgrupo2 = new String[100];
+             palabrasgrupo2 = escrito.split(" ");
+             System.out.println("Palabras en el primer grupo:");
+             for(int p1 = 0;p1<palabrasgrupo1.length;p1++){
+                 for(int p2 = 0;p2<palabrasgrupo2.length;p2++){
+                     if(palabrasgrupo1[p1].equals(palabrasgrupo2[p2])){
+                         puntuacion++;
+                     }
+                 }
+             }
+             //System.out.println("Que sepas que esta frase ha sacado: "+puntuacion+" puntos");
+             if(puntuacion > puntuacionmejorcandidato){puntuacionmejorcandidato = puntuacion;mejorcandidato = i;}
+        }
+         System.out.println("Yo te respondo:"+conversacion[(mejorcandidato+1)]);
+         elteresponde.setText(conversacion[(mejorcandidato+1)]);
+             
+    }
+         
+         //elteresponde.setText("El texto que has escrito es: "+);
+         //elteresponde.setText(conversacion[0]);
+     
     public static void main(String[] args) {
         // TODO code application logic here
        
