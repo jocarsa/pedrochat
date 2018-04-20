@@ -61,6 +61,9 @@ public class Hablar extends JFrame  {
         conversacion[1] = "Yo estoy bien, y tu?";
         // Aqui Pedro podrá poner sus cosas
         
+        conversacion[2] = "Es tu primera prueba de GitHub?";
+        conversacion[3] = "Si, hoy comparto mi primer repositorio";
+        
         // Aqui Pedro podrá poner sus cosas
     }
      private void botonActionPerformed(java.awt.event.ActionEvent evt) { 
