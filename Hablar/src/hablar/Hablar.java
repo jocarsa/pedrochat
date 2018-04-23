@@ -56,7 +56,7 @@ public class Hablar extends JFrame  {
 
         add(panel);
         // Algo
-        Hola como te encuentras
+        
         conversacion[0] = "Hola como estas?";
         conversacion[1] = "Yo estoy bien, y tu?";
         // Aqui Pedro podrá poner sus cosas
